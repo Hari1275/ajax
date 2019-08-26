@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>Simple CRUD operation</title>
+    <link href = "css/bootstrap.min.css" rel = "stylesheet">
+    <link href = "css/datatables.min.css" rel = "stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src = "js/jquery.min.js"></script>
+    <script src = "js/jquery.dataTables.min.js"></script>
+    <script src = "js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <!-- Bootstrap Grid system -->
+<div class = "row">
+    <div class = "col-md-6" style="padding:10vh;">
+        <h1>This is insert form</h1>
+        <!-- simple form -->
+        <form>
+            <div class = "input-group" style = "padding:5vh;">
+                <label for = "username">User name</label>
+                                        <!--  Text box for Username with id => username  -->
+                <input type = "text" id = "username" name="name" class = "form-control" 
+                placeholder = "Enter proper username" required/>
+            </div>
+            <div class = "input-group" style = "padding-left:5vh;">
+                <label for = "address">Address</label>
+                                        <!-- textarea for address with id => address -->
+                <textarea class = "form-control" id="address" name = "address" 
+                placeholder = "Enter your address" required></textarea> 
+            </div>
+            <div class = "input-group" style="padding:5vh">
+                                        <!-- add button with id => add -->
+                <button class="btn btn-success" id="add" type="button">ADD</button>
+                                        <!--  clear button which clears the form -->
+                <button type="reset" class="btn btn-danger" style="margin-left:5vh">Clear</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6" style="padding:10vh;">
+    <h1>This is display form</h1>
+    <div class="panel panel-success">
+            <div class="panel-heading">User Information</div>
+                <div class="panel-body" > 
+                    <!-- This is user table table body will be inserted dynamically using jquery datatables -->
+                    <table id="UserTable" class="display" cellspacing="0" width="100%" >
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- This is model used for update user information -->
+<div class = "modal fade" id = "editUser" role = "dialog">
+        <div class = "modal-dialog">
+            <div class = "modal-content">
+                <div class = "modal-header">
+                <button class = "close"  data-dismiss="modal">&times;</button>
+                    <h4 class = "modal-title" 
+                    style="text-align:center;color:#000;"><strong>Reply</strong></h4>
+                </div>
+                <div class = "modal-body">		
+                    <div class = "container">
+                        <div class = "row" style="margin:2vh;">
+                            <div class="input-group" >   
+                                <select class="form-control" id="select" style="width:80vh;">
+                                    <option value="username">Username</option>
+                                    <option value="address">Address</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class = "row" style="margin:2vh;">
+                            <div class="input-group">  
+                                <input class="form-control" 
+                                name="update" id='updateInput' 
+                                placeholder="What u want to update?" 
+                                aria-describeby="sizing-addon2" style="width:80vh;">
+                            </div>		
+                        </div>
+                        <input type="hidden" id="usrid"/>
+                    </div>
+                </div>
+                        <div class = "modal-footer">
+                            <button class = "btn btn-success" type="button" id="update">Update</button>
+                            <button class = "btn btn-danger" type="button" id ="close">Close</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+        <script src="js/addDetails.js"></script>
+        <script src="js/userFetch.js"></script>
+    </body>
+</html>
